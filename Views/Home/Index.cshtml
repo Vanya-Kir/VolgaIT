@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">VolgaIT
+    </h1>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h4>Number of applications: @ViewBag.Apps</h4>
+    }
+
+
+</div>

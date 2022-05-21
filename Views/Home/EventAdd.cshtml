@@ -1,0 +1,34 @@
+@model VolgaIT.Models.Event
+
+<form asp-action="EventAdd" asp-controller="Home" method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="AppId">AppId</label>
+                @Html.DropDownList("AppId")
+                <span asp-validation-for="AppId"></span>
+            </div>
+            <div class="form-group">
+                <label for="Name">Event name</label>
+                <input type="text" asp-for="Name" class="form-control" placeholder="Enter app name" required>
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label for="Information">Information</label>
+                <textarea rows="3" asp-for="Information" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="Date">Date</label>
+                <input type="datetime-local" asp-for="Date" class="form-control" placeholder="Enter event date">
+                <span asp-validation-for="Date"></span>
+            </div>
+            <div class="form-group">
+                <span asp-validation-summary="All" class="text-danger"></span>
+            </div>
+        </div>
+        <div>
+            <br>
+            <button type="submit" class="btn btn-success">Create event</button>
+        </div>
+    </div>
+</form>

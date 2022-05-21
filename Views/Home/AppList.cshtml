@@ -1,0 +1,21 @@
+@model List<VolgaIT.Models.Application>
+
+@Html.ActionLink("Add event", "EventAdd", new { args = "" }, new {@class="btn btn-success"})
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(item.Id.ToString(), "EventList", "Home", new {id = item.Id}, null)</td>
+            <td>@item.Name</td>
+            <td>@item.Date</td>
+        </tr>
+    }
+</table>

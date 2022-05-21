@@ -1,0 +1,21 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_DB: "volgadb"
+      POSTGRES_USER: "volgauser"
+      POSTGRES_PASSWORD: "vaolga4password"
+    ports:
+      - "5432:5432"
+  volgait-app:
+    build: .
+    restart: unless-stopped
+    environment:
+      DatabaseServer: "postgres"
+      DatabasePort: "5432"
+      DatabaseUser: "volgauser"
+      DatabasePassword: "vaolga4password"
+      DatabaseName: "volgadb"
+    ports: 
+      - "8090:80"
